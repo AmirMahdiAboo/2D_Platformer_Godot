@@ -19,6 +19,7 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		$AnimatedSprite2D.scale.x = -1 if direction < 0 else 1  # Flip sprite when moving left/right
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
