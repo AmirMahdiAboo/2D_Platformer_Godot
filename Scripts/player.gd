@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animated_sprite = $AnimatedSprite2D
 
 
 const SPEED = 150.0
@@ -12,17 +12,28 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up")):
-		if is_on_floor():
-			velocity.y = JUMP_VELOCITY
+	if (Input.is_action_just_pressed("jump") and is_on_floor()):
+		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("move_left", "move_right")
+	
+	handle_player_face_direction(direction)
+	handle_player_movement(direction)
+	#TODO write a function for handling animations
+	move_and_slide()
+
+
+func handle_player_face_direction(direction):
+	if direction > 0:
+		animated_sprite.flip_h = false;
+	elif direction < 0 :
+		animated_sprite.flip_h = true;
+
+func handle_player_movement(direction):
 	if direction:
 		velocity.x = direction * SPEED
-		animated_sprite_2d.scale.x = -1 if direction < 0 else 1  # Flip sprite when moving left/right
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
+	
