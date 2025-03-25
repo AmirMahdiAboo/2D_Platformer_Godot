@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://i2rpeqe1h5ie"]
+[gd_scene load_steps=18 format=3 uid="uid://i2rpeqe1h5ie"]
 
 [ext_resource type="PackedScene" uid="uid://d00ju2cd7kkpp" path="res://Scenes/player.tscn" id="1_6q8gv"]
 [ext_resource type="Texture2D" uid="uid://de2gavu4jcsw0" path="res://Assets/sprites/world_tileset.png" id="2_mkmgh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://x4toxqad2kmp" path="res://Scenes/Coin.tscn" id="4_jsl4g"]
 [ext_resource type="PackedScene" uid="uid://qqxs206ih348" path="res://Scenes/deadzone.tscn" id="5_eiwra"]
 [ext_resource type="PackedScene" uid="uid://dtxu3nhu3u5u4" path="res://Scenes/slime.tscn" id="6_3ouxs"]
+[ext_resource type="FontFile" uid="uid://dwhiyp880h6t" path="res://Assets/fonts/PixelOperator8.ttf" id="7_a1oql"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_de4b0"]
 texture = ExtResource("2_mkmgh")
@@ -325,10 +326,10 @@ position = Vector2(621, -52)
 position = Vector2(672, -130)
 
 [node name="Coin10" parent="Coins" instance=ExtResource("4_jsl4g")]
-position = Vector2(386, -214)
+position = Vector2(389, -233)
 
 [node name="Coin11" parent="Coins" instance=ExtResource("4_jsl4g")]
-position = Vector2(271, -210)
+position = Vector2(270, -235)
 
 [node name="Coin12" parent="Coins" instance=ExtResource("4_jsl4g")]
 position = Vector2(55, -231)
@@ -358,3 +359,28 @@ autoplay = "Move2"
 
 [node name="Slime" parent="." instance=ExtResource("6_3ouxs")]
 position = Vector2(19, -26)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Labels"]
+offset_left = -129.0
+offset_top = -114.0
+offset_right = -17.0
+offset_bottom = -91.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("7_a1oql")
+theme_override_font_sizes/font_size = 8
+text = "use space
+        to jump,bro"
+
+[node name="Label2" type="Label" parent="Labels"]
+offset_left = 305.0
+offset_top = -11.0
+offset_right = 417.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("7_a1oql")
+theme_override_font_sizes/font_size = 8
+text = "Don't come here!!"
