@@ -21,7 +21,7 @@ func _physics_process(delta):
 	
 	handle_player_face_direction(direction)
 	handle_player_movement(direction)
-	#TODO write a function for handling animations
+	handle_player_animations(direction)
 	move_and_slide()
 
 
@@ -36,4 +36,12 @@ func handle_player_movement(direction):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
+
+func handle_player_animations(direction):
+	if is_on_floor():
+		if direction == 0:
+			animated_sprite.play("idle")
+		elif direction != 0:
+			animated_sprite.play("run")
+	else :
+		animated_sprite.play("jump")
