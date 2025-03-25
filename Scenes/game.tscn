@@ -1,6 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://i2rpeqe1h5ie"]
+[gd_scene load_steps=20 format=3 uid="uid://i2rpeqe1h5ie"]
 
 [ext_resource type="PackedScene" uid="uid://d00ju2cd7kkpp" path="res://Scenes/player.tscn" id="1_6q8gv"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_mpiif"]
+[ext_resource type="FontFile" uid="uid://c6o3bpteus02p" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_fwkl0"]
 [ext_resource type="Texture2D" uid="uid://de2gavu4jcsw0" path="res://Assets/sprites/world_tileset.png" id="2_mkmgh"]
 [ext_resource type="PackedScene" uid="uid://cpox1xcbj73kb" path="res://Scenes/platform.tscn" id="3_svfqo"]
 [ext_resource type="PackedScene" uid="uid://x4toxqad2kmp" path="res://Scenes/Coin.tscn" id="4_jsl4g"]
@@ -269,6 +271,34 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_mpiif")
+
+[node name="ScoreLable" type="Label" parent="GameManager"]
+offset_left = -413.0
+offset_top = -355.0
+offset_right = -247.0
+offset_bottom = -332.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fwkl0")
+theme_override_font_sizes/font_size = 8
+text = "you have earned X coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mashallahLable" type="Label" parent="GameManager"]
+offset_left = -414.0
+offset_top = -378.0
+offset_right = -248.0
+offset_bottom = -355.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fwkl0")
+theme_override_font_sizes/font_size = 8
+text = "Mashallah"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(10, -13)
